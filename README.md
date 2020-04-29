@@ -1,10 +1,10 @@
 # Api-fetcher
 
-- requirements:
+-requirements:
 -----------------
-python >= 3.6
-virtualenv
-
+  - python >= 3.6
+  - virtualenv
+------------------
 * first clone the repo
   - https://github.commotaz-hejaze/Api-fetcher.git
 
