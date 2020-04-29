@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron custom-jumbo">
+    <div class="container">
+      <h1 class="display-3">Welcome!</h1>
+      <h3>Use this page to collect data from noas api and show , by <a href="https://www.linkedin.com/in/al-motaz-hejazy/">HEJAZE</a></h3>
+      <br>
+      <p><a class="btn btn-info btn-lg" href="{% url 'fetch-api' %}" role="button">Fetch-API &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      {% if items %}
+      {% for item in items %}
+      <div class="col-md-4">
+        <div class="card h-200" style="width: 18rem;">
+      <img src="{{ item.image_url }}" id="image-{{ item.public_id }}" class="card-img-top" alt="{{ item.title }}" onerror="" srcset="{{ img_on_error }}" style="height:200px;background-color:#4b8e8d;">
+        <div class="card-body">
+          <h5 class="card-title title-height" id="title-{{ item.public_id }}">{{ item.title }}</h5>
+          <p class="card-text truncateLongTexts" id="description-{{ item.public_id }}">{{ item.description }}</p>
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-whatever="{{ item.public_id }}">Send By Email</button>
+        </div>
+      </div>
+        <br>
+      </div>
+      {% endfor %}
+      {% else %}
+      <p>No items to show</p>
+      {% endif %}
+    </div>
+
+    <hr>
+
+  </div> <!-- modal form -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Email This Picture</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-mail" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-mail">
+          </div>
+          <div class="form-group">
+            <label for="message-title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="message-title">
+          </div>
+          <div class="form-group">
+            <label for="message-image" class="col-form-label">Image:</label>
+            <input type="text" class="form-control" id="message-image">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-info">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+
+{% endblock %}
+
+{% block modal-javascript %}
+<script>
+  $(window).on('load', function(){
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var id = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        var title = document.getElementById('title-'+id)
+        var image = document.getElementById('image-'+id).getAttribute('src');
+        var description = document.getElementById('description-'+id)
+        modal.find('.modal-title').text('New message to:')
+        modal.find('.modal-body #message-title').val(title.innerHTML)
+        modal.find('.modal-body #message-image').val(image)
+        modal.find('.modal-body textarea').val(description.innerHTML)
+    })
+   })
+  </script>
+{% endblock %}

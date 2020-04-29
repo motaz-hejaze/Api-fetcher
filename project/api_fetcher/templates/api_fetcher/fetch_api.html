@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<main id="timer-main" class="container">
+    <h1>Inserting Data from API to database</h1>
+    <h2 >you will be redirected to home page after<p id="timer"></p></h2>
+</main>
+
+
+<script>
+timer = document.getElementById('timer');
+x = 5;
+var redirect_timer = setInterval(function(){
+    if (x <= 0) {
+        clearInterval(redirect_timer);
+        window.location.assign("{% url 'home' %}");
+    }
+    timer.innerHTML = x;
+    x -= 1;
+}, 1000);
+</script>
+
+
+{% endblock %}

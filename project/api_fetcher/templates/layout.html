@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Api Fetcher App</title>
+
+    <!-- Bootstrap core CSS -->
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+  </head>
+  <body>
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show margin-bttm" role="alert">
+      <strong>Attention Please!</strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+{% block body %}
+
+{% endblock %}
+
+  <script src="{% static 'js/jquery.js' %}" ></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}" ></script>
+  <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+
+  {% block modal-javascript %}
+
+  {% endblock %}
+  </body>
+</html>

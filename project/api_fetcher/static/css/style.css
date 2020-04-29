@@ -1,0 +1,66 @@
+.bg-dark {
+    background-color: #396362!important;
+      }
+      body {
+ height: 100%;
+ position: relative;
+ padding-top:0px;
+}
+    main {
+ min-height: 100vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 100px; /* height of your footer */
+}
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+
+    footer {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+      background-color: #396362!important;
+      color:white;
+      text-align: center;
+      height:70px;
+}
+
+    #footer-text {
+    margin-top:0px;
+    padding-top:10px;
+    margin-bottom:0px;
+    }
+
+    #timer-main {
+    margin-top: 100px;
+    }
+
+    .margin-bttm {
+      margin-bottom:0px;
+    }
+
+    .title-height {
+    height:70px;
+    }
+
+    .truncateLongTexts {
+    width: 200px;
+    white-space: normal;
+    height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis // This is where the magic happens
+    }
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
