@@ -4,6 +4,7 @@ requirements:
 -----------------
   - python >= 3.6
   - virtualenv
+  - Git
 ------------------
 
 * first clone the repo:
