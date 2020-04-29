@@ -24,7 +24,7 @@ requirements:
 
 * create database and tables:
   - cd project/
-  - python manage.py makemigrations
+  - python manage.py makemigrations api_fetcher
   - python manage.py migrate
 
 * create superuser:
