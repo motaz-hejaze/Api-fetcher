@@ -17,7 +17,7 @@ requirements:
   - virtualenv venv -p python3.6
   
 * activate your virtual environment:
-  - virtualenv/bin/activate (linux)
+  - source venv/bin/activate (linux)
 
 * install required python packages:
   - pip install -r requirements.txt
