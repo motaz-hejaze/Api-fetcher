@@ -1,13 +1,28 @@
 # Api-fetcher
 
+- requirements:
+-----------------
+python >= 3.6
+virtualenv
 
 * first clone the repo
   - https://github.commotaz-hejaze/Api-fetcher.git
 
-* cd into projec folder
-  - cd Api-fetcher/project
 
-* create  database and tables
+* cd into cloned folder
+  - cd Api-fetcher
+
+* create virtual environmet
+  - virtualenv venv -p python3.6
+  
+* activate your virtual environment
+  - virtualenv/bin/activate (linux)
+
+* install required python packages
+  - pip install -r requirements.txt
+
+* create database and tables
+  - cd project/
   - python manage.py makemigrations
   - python manage.py migrate
 
