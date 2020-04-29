@@ -7,7 +7,7 @@ requirements:
 ------------------
 
 * first clone the repo:
-  - https://github.com/motaz-hejaze/Api-fetcher.git
+  - git clone https://github.com/motaz-hejaze/Api-fetcher.git
 
 
 * cd into cloned folder:
